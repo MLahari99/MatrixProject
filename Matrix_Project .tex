@@ -1,0 +1,147 @@
+\UseRawInputEncoding
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\graphicspath{ {/home/user/Documents/} }
+ 
+\usetheme{Copenhagen}
+\title{MATRIX PROJECT\\EE1390 Introduction to AI and ML}
+\author{By\\Sowmya and Lahari}
+\institute{Indian Institute of Technology Hyderabad}
+\date{14/02/19}
+ 
+ 
+ 
+\begin{document}
+ 
+\frame{\titlepage}
+ 
+\begin{frame}
+\frametitle{Table of Contents}
+\begin{itemize}
+\item Geometric Question
+\item Matrix Transformation of the Question
+\item Solution in the form of matrix
+\item Figure of the solution
+\end{itemize}
+\end{frame}
+ 
+\begin{frame}
+\frametitle{Geometric Question}
+If a circle \textbf{C}, whose radius is 3,  touches externally the circle $$x^2+y^2+2x-4y = 4$$ at the point (2,2),then find the length of the intercept cut by this circle \textbf{C} on the x-axis.
+\end{frame}
+
+\begin{frame}
+\frametitle{Figure}
+\includegraphics[width = 300pt]{Fig2}
+\end{frame}
+
+\begin{frame}
+\frametitle{Matrix Transformation of the Question}
+Equation of the circle which externally touches the circle \textbf{C} at a point (2,2) is  $$\textbf{X}^T\textbf{X}+\begin{pmatrix} 2  \ -4\end{pmatrix}\textbf{X} = 4$$ where 
+X is point on the circle $$ \textbf{X} = \begin{pmatrix} x \\ y \end{pmatrix}$$
+Find the length of intercept cut by circle \textbf{C} on the x-axis.
+\end{frame}
+
+\begin{frame}
+\frametitle{Solution in the form of matrix}
+Let\\
+\textbf{C1} - Centre of the circle whose equation is unknown\\
+r - Radius of the circle whose equation is given\\
+\textbf{C} - Centre of the circle whose equation is given\\
+\end{frame}
+
+\begin{frame}
+\frametitle{Solution in the form of matrix}
+Given\\
+\begin{equation}
+\textbf{X}^T\textbf{X}+\begin{pmatrix} 2  \ -4\end{pmatrix}\textbf{X} = 4
+\end{equation}
+Since we know that $$(\textbf{X}-\textbf{C})^T(\textbf{X}-\textbf{C}) = r^2$$ as
+$$ ||\textbf{X}-\textbf{C}|| = r$$
+\begin{equation}
+\textbf{X}^T\textbf{X}-2\textbf{C}^T\textbf{X} = r^2 - \textbf{C}^T\textbf{C}
+\end{equation}
+\end{frame}
+
+\begin{frame}
+\frametitle{Solution in the form of matrix}
+Comparing equations (1) and (2) we get
+\begin{columns}
+\column{0.5\textwidth}
+$$ -2\textbf{C}^T = \begin{pmatrix}2\ -4 \end{pmatrix}$$
+$$ \textbf{C}^T = \frac{-1\times \begin{pmatrix}2\ -4 \end{pmatrix}}{2} $$
+ $$\textbf{C} = \frac{-1\times \begin{pmatrix}2\ -4 \end{pmatrix}^T}{2} $$
+\begin{equation}
+\textbf{C}^T\textbf{C} = \begin{pmatrix}-1\ 2 \end{pmatrix} \begin{pmatrix}-1\\ 2 \end{pmatrix}  = 5
+\end{equation}
+\column{0.5\textwidth}
+$$r^2-\textbf{C}^T\textbf{C} = 4 $$
+$$r^2 = \textbf{C}^T\textbf{C} + 4 $$
+\begin{equation}
+ r = \sqrt{\textbf{C}^T\textbf{C} + 4} 
+\end{equation}
+\end{columns}
+From equations (3) and (4) we get 
+$$ r = \sqrt{ 5 + 4 } = 3 $$
+\end{frame}
+
+\begin{frame}
+\frametitle{Solution in the form of matrix}
+Let \textbf{n} be the direction vector of line joining centre C and point(2,2)$$\textbf{n} = \begin{pmatrix}-1\\ 2 \end{pmatrix} - \begin{pmatrix}2\\ 2 \end{pmatrix} = \begin{pmatrix}-3\\ 0 \end{pmatrix}$$\\
+The line joining centres of two externally touching circles includes the point of contact.$$\textbf{C1} - \textbf{C} = k\textbf{n} $$ where k is some constant.
+\end{frame}
+
+\begin{frame}
+\frametitle{Solution in the form of matrix}
+\begin{equation}\textbf{C1} = k\textbf{n} + \textbf{C} \end{equation}
+$$(\textbf{C1}-\begin{pmatrix}2\\ 2 \end{pmatrix})^T(\textbf{C1}-\begin{pmatrix}2\\ 2 \end{pmatrix}) = 3^2 $$
+From (5) $$ ( \textbf{C} + k\textbf{n} - \begin{pmatrix}2\\ 2 \end{pmatrix})^T( \textbf{C} + k\textbf{n} - \begin{pmatrix}2\\ 2 \end{pmatrix}) = 9 $$
+$$( \begin{pmatrix}-1\\ 2 \end{pmatrix} + k \begin{pmatrix}-3\\ 0 \end{pmatrix} - \begin{pmatrix}2\\ 2 \end{pmatrix})^T(\begin{pmatrix}-1\\ 2 \end{pmatrix} + k \begin{pmatrix}-3\\ 0 \end{pmatrix} - \begin{pmatrix}2\\ 2 \end{pmatrix}) = 9 $$
+$$ \begin{pmatrix}-3k - 3 \ \ 0 \end{pmatrix} \begin{pmatrix}-3k - 3 \\ 0 \end{pmatrix} = 9 $$
+$$ ( -3k - 3 )^ 2 + 0^2 = 9 $$
+\end{frame}
+
+\begin{frame}
+\frametitle{Solution in the form of matrix}
+$$ 9(k+1)^2 = 9 $$
+$$ (k+1)^2 = 1 $$
+$$ k + 1 = \pm 1 $$
+$$ k = 0,-2  $$ 
+We require a non-zero value of k so $$k = -2$$
+$$ \textbf{C} = \begin{pmatrix}-1\\ 2 \end{pmatrix} + k\begin{pmatrix}-3\\ 0 \end{pmatrix} = \begin{pmatrix}-1\\ 2 \end{pmatrix} + -2\begin{pmatrix}-3\\ 0 \end{pmatrix} $$ 
+$$\textbf{C} = \begin{pmatrix}5\\ 2 \end{pmatrix}$$
+\end{frame}
+
+\begin{frame}
+\frametitle{Solution in the form of matrix}
+We now know the centre of the circle \textbf{C} and its radius(r1 = 3 given). So the equation of the circle is 
+$$(\textbf{Y} - \textbf{C})^T(\textbf{Y} - \textbf{C}) = 3^2 $$
+where \textbf{Y} is a point on the circle and as $$||\textbf{Y} - \textbf{C}|| = 3$$
+$$\textbf{Y}^T\textbf{Y} - 2\textbf{C}^T\textbf{Y} + \textbf{C}^T\textbf{C} = 9 $$
+$$\textbf{Y}^T\textbf{Y} - 2\begin{pmatrix}5\ 2 \end{pmatrix}\textbf{Y} + \begin{pmatrix}5\ 2 \end{pmatrix}\begin{pmatrix}5\\ 2 \end{pmatrix} = 9 $$
+\begin{equation}
+\textbf{Y}^T\textbf{Y} - 2\begin{pmatrix}5\ 2 \end{pmatrix}\textbf{Y} + 20 = 0 
+\end{equation}
+\end{frame}
+
+\begin{frame}
+\frametitle{Solution of the form of matrix}
+To get the x-intercept we take general point on x-axis, substitute it in the circle equation and solve for points and then find distance between them.
+$$ Substituting \ \textbf{Y} = \begin{pmatrix}x\\ 0 \end{pmatrix} \ in \ (6) $$
+$$\begin{pmatrix}x\ 0 \end{pmatrix}\begin{pmatrix}x\\ 0 \end{pmatrix} - 2\begin{pmatrix}5\ 2 \end{pmatrix}\begin{pmatrix}x\\ 0 \end{pmatrix} + 20 = 0 $$
+$$ x^2 -10x + 20 = 0 $$
+$$ x = \frac{10\pm\sqrt{10^2-4\times20}}{2} $$
+$$ x = \frac{10\pm\sqrt{20}}{2} $$
+$$ x = 5 \pm \sqrt{5} $$
+$$ X-intercept = \Delta{x} = 2\sqrt{5} $$
+\end{frame}
+ 
+\begin{frame}
+\frametitle{Figure of the Solution}
+\begin{figure}
+\includegraphics[width = 300pt]{fig.jpeg}
+\end{figure}
+\end{frame}
+ 
+\end{document}
