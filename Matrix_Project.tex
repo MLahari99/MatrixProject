@@ -1,0 +1,154 @@
+\UseRawInputEncoding
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\graphicspath{ {/home/user/Documents/} }
+ 
+\title{MATRIX PROJECT\\EE1390 Introduction to AI and ML}
+\author{Submitted by\\Sowmya(EP17BTECH11018)\\Lahari(EP17BTECH11012)}
+\institute{Indian Institute of Technology Hyderabad}
+\date{14/02/19}
+ 
+ 
+ 
+\begin{document}
+ 
+\frame{\titlepage}
+ 
+\begin{frame}
+\frametitle{Table of Contents}
+\begin{itemize}
+\item Geometric Question
+\item Matrix Transformation of the Question
+\item Solution in the form of matrix
+\item Figure of the solution
+\end{itemize}
+\end{frame}
+ 
+\begin{frame}
+\frametitle{Geometric Question}
+If a circle C, whose radius is 3,  touches externally the circle $$x^2+y^2+2x-4y = 4$$ at the point (2,2),then find the length of the intercept cut by this circle C on the x-axis.
+\end{frame}
+
+\begin{frame}
+\frametitle{Matrix Transformation of the Question}
+Equation of the circle which externally touches the circle C at a point (2,2) is  $$X^TX+\begin{pmatrix} 2  \ -4\end{pmatrix}X = 4$$ where 
+X is point on the circle $$ X = \begin{pmatrix} x \\ y \end{pmatrix}$$
+Find the length of intercept cut by circle C on the x-axis.
+\end{frame}
+
+\begin{frame}
+\frametitle{Solution in the form of matrix}
+Let\\
+C1 - Centre of the circle whose equation is unknown\\
+r - Radius of the circle whose equation is given\\
+C - Centre of the circle whose equation is given\\
+\end{frame}
+
+\begin{frame}
+\frametitle{Solution in the form of matrix}
+Given\\
+\begin{equation}
+X^TX+\begin{pmatrix} 2  \ -4\end{pmatrix}X = 4
+\end{equation}
+Since we know that $$(X-C)^T(X-C) = r^2$$ as
+$$ ||X-C|| = r$$
+\begin{equation}
+X^TX-2C^TX = r^2 - C^TC
+\end{equation}
+\end{frame}
+
+\begin{frame}
+\frametitle{Solution in the form of matrix}
+Comparing equations (1) and (2) we get
+\begin{columns}
+\column{0.5\textwidth}
+$$ -2C^T = \begin{pmatrix}2\ -4 \end{pmatrix}$$
+$$ C^T = \frac{-1\times \begin{pmatrix}2\ -4 \end{pmatrix}}{2} $$
+ $$C = \frac{-1\times \begin{pmatrix}2\ -4 \end{pmatrix}^T}{2} $$
+\begin{equation}
+C^TC = \begin{pmatrix}-1\ 2 \end{pmatrix} \begin{pmatrix}-1\\ 2 \end{pmatrix}  = 5
+\end{equation}
+\column{0.5\textwidth}
+$$r^2-C^TC = 4 $$
+$$r^2 = C^TC + 4 $$
+\begin{equation}
+ r = \sqrt{C^TC + 4} 
+\end{equation}
+\end{columns}
+From equations (3) and (4) we get 
+$$ r = \sqrt{ 5 + 4 } = 3 $$
+\end{frame}
+
+\begin{frame}
+\frametitle{Solution in the form of matrix}
+Let n be the direction vector of line joining centre C and point(2,2)$$n = \begin{pmatrix}-1\\ 2 \end{pmatrix} - \begin{pmatrix}2\\ 2 \end{pmatrix} = \begin{pmatrix}-3\\ 0 \end{pmatrix}$$\\
+We know that when circles touch each other externally at a point, the point and the centres of the circles lie on the same line which implies $$C1 - C = kn $$ where k is some constant.
+\end{frame}
+
+\begin{frame}
+\frametitle{Solution in the form of matrix}
+As we know that when circles touch each other externally the distance between the centres is same as the sum of their radii.
+$$|C1 - C| = r1 + r  (since \ r = 3\ and \ radius \ of\ the\ other\ circle\ (r1)\ = 3) $$
+$$( C1 - C )^T( C1- C ) = 6^2 $$
+$$ (kn)^T(kn) = 36 $$
+$$k^2 \times n^Tn = 36 $$
+$$ k^2 = \frac{36}{n^Tn} $$
+$$ As\ n^Tn = \begin{pmatrix}-3\ 0 \end{pmatrix} \begin{pmatrix}-3\\ 0 \end{pmatrix} = 9 $$
+$$ k^2 = \frac{36}{9} = 4 $$
+$$ k = \pm 2  ..... (a)$$
+\end{frame}
+
+\begin{frame}
+\frametitle{Solution in the form of matrix}
+Also \begin{equation}C1 = kn + C \end{equation}
+$$(C1-\begin{pmatrix}2\\ 2 \end{pmatrix})^T(C1-\begin{pmatrix}2\\ 2 \end{pmatrix}) = 3^2 $$
+From (5) $$ ( C + kn - \begin{pmatrix}2\\ 2 \end{pmatrix})^T( C + kn - \begin{pmatrix}2\\ 2 \end{pmatrix}) = 9 $$
+$$( \begin{pmatrix}-1\\ 2 \end{pmatrix} + k \begin{pmatrix}-3\\ 0 \end{pmatrix} - \begin{pmatrix}2\\ 2 \end{pmatrix})^T(\begin{pmatrix}-1\\ 2 \end{pmatrix} + k \begin{pmatrix}-3\\ 0 \end{pmatrix} - \begin{pmatrix}2\\ 2 \end{pmatrix}) = 9 $$
+$$ \begin{pmatrix}-3k - 3 \ \ 0 \end{pmatrix} \begin{pmatrix}-3k - 3 \\ 0 \end{pmatrix} = 9 $$
+$$ ( -3k - 3 )^ 2 + 0^2 = 9 $$
+\end{frame}
+
+\begin{frame}
+\frametitle{Solution in the form of matrix}
+$$ 9(k+1)^2 = 9 $$
+$$ (k+1)^2 = 1 $$
+$$ k + 1 = \pm 1 $$
+$$ k = 0,-2  ......(b)$$ 
+From (a) and (b) $$ k = -2 $$
+$$ C = \begin{pmatrix}-1\\ 2 \end{pmatrix} + k\begin{pmatrix}-3\\ 0 \end{pmatrix} = \begin{pmatrix}-1\\ 2 \end{pmatrix} + -2\begin{pmatrix}-3\\ 0 \end{pmatrix} $$ 
+$$C = \begin{pmatrix}5\\ 2 \end{pmatrix}$$
+\end{frame}
+
+\begin{frame}
+\frametitle{Solution in the form of matrix}
+We now know the centre of the circle C and its radius(r1 = 3 given). So the equation of the circle is 
+$$(Y - C)^T(Y - C) = 3^2 $$
+where Y is a point on the circle and as $$|Y - C| = 3$$
+$$Y^TY - 2C^TY + C^TC = 9 $$
+$$Y^TY - 2\begin{pmatrix}5\ 2 \end{pmatrix}Y + \begin{pmatrix}5\ 2 \end{pmatrix}\begin{pmatrix}5\\ 2 \end{pmatrix} = 9 $$
+\begin{equation}
+Y^TY - 2\begin{pmatrix}5\ 2 \end{pmatrix}Y + 20 = 0 
+\end{equation}
+\end{frame}
+
+\begin{frame}
+\frametitle{Solution of the form of matrix}
+To get the x-intercept we take general point on x-axis, substitute it in the circle equation and solve for points and then find distance between them.
+$$ Substituting \ Y = \begin{pmatrix}x\\ 0 \end{pmatrix} \ in \ (6) $$
+$$\begin{pmatrix}x\ 0 \end{pmatrix}\begin{pmatrix}x\\ 0 \end{pmatrix} - 2\begin{pmatrix}5\ 2 \end{pmatrix}\begin{pmatrix}x\\ 0 \end{pmatrix} + 20 = 0 $$
+$$ x^2 -10x + 20 = 0 $$
+$$ x = \frac{10\pm\sqrt{10^2-4\times20}}{2} $$
+$$ x = \frac{10\pm\sqrt{20}}{2} $$
+$$ x = 5 \pm \sqrt{5} $$
+$$ X-intercept = \Delta{x} = 2\sqrt{5} $$
+\end{frame}
+ 
+\begin{frame}
+\frametitle{Figure of the Solution}
+\begin{figure}
+\includegraphics[width = 320pt]{fig.jpeg}
+\end{figure}
+\end{frame}
+ 
+\end{document}
